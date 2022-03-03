@@ -62,6 +62,18 @@ goaccess:
         - PGID=0
         - TZ=America/New_York        
 ```
+docker run for pi-hosted setups
+[12:19 AM]
+sudo docker run -d \
+   --name=goaccess \
+   -e PUID=1000 \
+   -e PGID=1000 \
+   -e TZ=America/Chicago \
+   -v /portainer/Files/AppData/Config/nginx-proxy-manager/data:/opt/log \
+   -p 7880:7880 \
+   --restart unless-stopped \
+   justsky/goaccess-for-nginxproxymanager
+   ...
 
 Thanks to https://github.com/GregYankovoy for the inspiration, and for their nginx.conf :)
 
